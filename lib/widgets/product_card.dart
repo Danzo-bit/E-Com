@@ -4,27 +4,37 @@ import 'package:my_app/models/models.dart';
 class ProductCard extends StatelessWidget {
   final Product product;
   final double widthFactor;
-  const ProductCard({Key? key, required this.product, this.widthFactor = 2.5}) : super(key: key);
+  final double leftPosition;
+  final bool isWishlist;
+  const ProductCard({
+    Key? key,
+    required this.product,
+    this.widthFactor = 2.5,
+    this.leftPosition = 5,
+    this.isWishlist = false
+  })
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return  InkWell(
-      onTap: (){
+    var widthValue = MediaQuery.of(context).size.width / widthFactor;
+
+    return InkWell(
+      onTap: () {
         Navigator.pushNamed(context, '/product', arguments: product);
       },
       child: Stack(
         children: [
           Container(
-            width: MediaQuery.of(context).size.width / widthFactor,
+            width: widthValue,
             height: 150,
-            child: Image.network(
-                product.imageUrl,
-                fit: BoxFit.cover),
+            child: Image.network(product.imageUrl, fit: BoxFit.cover),
           ),
           Positioned(
             top: 60,
+            left: leftPosition,
             child: Container(
-              width: MediaQuery.of(context).size.width / widthFactor,
+              width: widthValue - 10 - leftPosition,
               height: 80,
               decoration: BoxDecoration(
                 color: Colors.black.withAlpha(50),
@@ -33,9 +43,9 @@ class ProductCard extends StatelessWidget {
           ),
           Positioned(
             top: 65,
-            left: 5,
+            left: leftPosition + 5,
             child: Container(
-              width: MediaQuery.of(context).size.width / widthFactor - 10,
+              width: widthValue - 20 - leftPosition,
               height: 70,
               decoration: BoxDecoration(
                 color: Colors.black,
@@ -51,7 +61,7 @@ class ProductCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                           product.name,
+                            product.name,
                             style: Theme.of(context)
                                 .textTheme
                                 .headline5
@@ -59,25 +69,33 @@ class ProductCard extends StatelessWidget {
                           ),
                           Text(
                             '\$${product.price}',
-                            style: Theme.of(context).textTheme.bodyText1?.copyWith(color: Colors.white),
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyText1
+                                ?.copyWith(color: Colors.white),
                           )
                         ],
                       ),
                     ),
                     Expanded(
                       child: IconButton(
-                          onPressed: (){
-
-                          },
-                          icon: Icon(
+                          onPressed: () {},
+                          icon: const Icon(
                             Icons.add_circle,
                             color: Colors.white,
-                          )
-                      ),
-                    )
+                          )),
+                    ),
+                    isWishlist ?
+                    Expanded(
+                      child: IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.delete,
+                            color: Colors.white,
+                          )),
+                    ) : SizedBox(),
                   ],
                 ),
-
               ),
             ),
           )
