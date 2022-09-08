@@ -23,7 +23,7 @@ class Product extends Equatable {
   static List<Product> products = [
     const Product(
         name: 'Product #1',
-        category: 'Shoes',
+        category: 'Shoe',
         imageUrl:
             'https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8c2hvZXN8ZW58MHx8MHx8&w=1000&q=80',
         price: 2.45,
@@ -47,7 +47,7 @@ class Product extends Equatable {
         isPopular: false),
     const Product(
         name: 'Product #4',
-        category: 'Shoes',
+        category: 'Shoe',
         imageUrl:
         'https://img.freepik.com/free-photo/fashion-shoes-sneakers_1203-7529.jpg?w=2000',
         price: 9.45,
@@ -63,7 +63,7 @@ class Product extends Equatable {
         isPopular: false),
     const Product(
         name: 'Product #6',
-        category: 'Foods',
+        category: 'Shoe',
         imageUrl:
         'https://assets1.cbsnewsstatic.com/hub/i/2015/07/01/0b059f60-344d-4ada-baae-e683aff3650a/istock000044051102large.jpg',
         price: 5.00,
