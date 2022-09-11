@@ -8,7 +8,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: CustomAppBar(title: 'E-shop'),
+        appBar: CustomAppBar(title: 'E-shop', automaticallyImplyLeading: false,),
         bottomNavigationBar: CustomNavBar(),
         body: Column(
           children: [

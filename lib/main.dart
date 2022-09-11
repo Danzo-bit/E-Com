@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl/intl.dart';
 import 'package:my_app/blocs/cart/cart_bloc.dart';
 import 'package:my_app/config/app_router.dart';
 import 'package:my_app/config/theme.dart';
@@ -24,7 +23,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: "E-Shop",
+        title: "e-Shop",
         theme: theme(),
         onGenerateRoute: AppRouter.onGenerateRoute,
         initialRoute: SplashScreen.routeName,
