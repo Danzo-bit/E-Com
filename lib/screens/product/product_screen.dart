@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_app/models/wishlist_model.dart';
 import 'package:my_app/models/wishlist_model.dart';
-import '../../blocs/wishlist_bloc.dart';
+import '../../blocs/wishlist/wishlist_bloc.dart';
 import '../../models/product_model.dart';
 import '../../widgets/widgets.dart';
 

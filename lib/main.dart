@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:my_app/config/app_router.dart';
 import 'package:my_app/config/theme.dart';
-import 'blocs/wishlist_bloc.dart';
+import 'blocs/wishlist/wishlist_bloc.dart';
 import 'screens/screens.dart';
 
 void main() {
