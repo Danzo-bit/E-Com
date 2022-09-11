@@ -24,16 +24,23 @@ class HomeScreen extends StatelessWidget {
                   .map((category) => HeroCarouselCard(category: category))
                   .toList(),
             )),
+            SizedBox(
+              height: 20,
+            ),
             const SectionTitle(title: 'RECOMMENDED'),
-            ProductCarousel(
-                products: Product.products
-                    .where((product) => product.isRecommended)
-                    .toList()),
+            Expanded(
+              child: ProductCarousel(
+                  products: Product.products
+                      .where((product) => product.isRecommended)
+                      .toList()),
+            ),
             const SectionTitle(title: 'MOST POPULAR'),
-            ProductCarousel(
-                products: Product.products
-                    .where((product) => product.isPopular)
-                    .toList()),
+            Expanded(
+              child: ProductCarousel(
+                  products: Product.products
+                      .where((product) => product.isPopular)
+                      .toList()),
+            ),
           ],
         ));
   }
