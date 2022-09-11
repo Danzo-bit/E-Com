@@ -1,8 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_app/models/wishlist_model.dart';
-import 'package:my_app/models/wishlist_model.dart';
+import 'package:my_app/screens/screens.dart';
+import '../../blocs/cart/cart_bloc.dart';
 import '../../blocs/wishlist/wishlist_bloc.dart';
 import '../../models/product_model.dart';
 import '../../widgets/widgets.dart';
@@ -38,7 +38,8 @@ class ProductScreen extends StatelessWidget {
                             .read<WishlistBloc>()
                             .add(AddWishlistProduct(product));
 
-                        const snackbar = SnackBar(content: Text('Added to Wishlist!'));
+                        const snackbar =
+                            SnackBar(content: Text('Added to Wishlist!'));
                         ScaffoldMessenger.of(context).showSnackBar(snackbar);
                       },
                       icon: const Icon(
@@ -47,16 +48,23 @@ class ProductScreen extends StatelessWidget {
                       ));
                 },
               ),
-              ElevatedButton(
-                  style: ElevatedButton.styleFrom(primary: Colors.white),
-                  onPressed: () {},
-                  child: Text(
-                    'ADD TO CART',
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline3!
-                        .copyWith(color: Colors.black),
-                  ))
+              BlocBuilder<CartBloc, CartState>(
+                builder: (context, state) {
+                  return ElevatedButton(
+                      style: ElevatedButton.styleFrom(primary: Colors.white),
+                      onPressed: () {
+                        context.read<CartBloc>().add(CartProductAdded(product: product));
+                        Navigator.pushNamed(context, CartScreen.routeName);
+                      },
+                      child: Text(
+                        'ADD TO CART',
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline3!
+                            .copyWith(color: Colors.black),
+                      ));
+                },
+              )
             ],
           ),
         ),

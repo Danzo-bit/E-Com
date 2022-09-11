@@ -3,8 +3,8 @@ import 'package:equatable/equatable.dart';
 import 'package:my_app/models/product_model.dart';
 
 class Cart extends Equatable{
-  List<Product> products;
-  Cart({this.products = const<Product>[]});
+  final List<Product> products;
+  const Cart({this.products = const<Product>[]});
 
 //getting total price from list
   double get subtotal => products.fold(0, (total, current) => total + current.price);
@@ -25,7 +25,7 @@ class Cart extends Equatable{
   double get totalFee => subtotal + deliveryFee(subtotal);
 
   String freeDelivery(subtotal){
-    if(subtotal >= 150){
+    if(subtotal >= 30){
       return 'You have free Delivery';
     }else{
       double missing = 30.0 - subtotal;
@@ -34,6 +34,9 @@ class Cart extends Equatable{
   }
 
   String get freeDeliveryString => freeDelivery(subtotal);
+
+  String get totalFeeString => totalFee.toStringAsFixed(2);
+
 
 
 
