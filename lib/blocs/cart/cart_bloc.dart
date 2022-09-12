@@ -23,7 +23,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       yield* _mapCartStartedToState();
     }
     else if(event is CartProductAdded){
-      yield* _mapCartProductAdeedToState(event, state);
+      yield* _mapCartProductAddedToState(event, state);
     }
     else if(event is CartProductRemoved){
       yield* _mapCartProductRemovedToState(event, state);
@@ -37,7 +37,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
       yield CartLoaded();
     }catch(_){}
   }
-  Stream<CartState> _mapCartProductAdeedToState(
+  Stream<CartState> _mapCartProductAddedToState(
       CartProductAdded event,
       CartState state
       )async*{

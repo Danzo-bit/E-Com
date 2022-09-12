@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
 
 class Category extends Equatable{
@@ -20,5 +21,10 @@ class Category extends Equatable{
         Category(name: 'Shoe', imageUrl: 'https://img.freepik.com/free-photo/fashion-shoes-sneakers_1203-7529.jpg?w=2000'),
         Category(name: 'Shoe', imageUrl: 'https://images.unsplash.com/photo-1561808843-7adeb9606939?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGZhc2hpb24lMjBzaG9lc3xlbnwwfHwwfHw%3D&w=1000&q=80'),
       ];
+
+  static Category fromSnapshot(DocumentSnapshot snapshot){
+    Category category = Category(name: snapshot['name'], imageUrl: snapshot['imageUrl']);
+    return category;
+  }
 
 }
