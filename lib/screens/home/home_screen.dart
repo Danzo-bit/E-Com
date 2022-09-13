@@ -16,7 +16,7 @@ class HomeScreen extends StatelessWidget {
           title: 'E-shop',
           automaticallyImplyLeading: false,
         ),
-        bottomNavigationBar: CustomNavBar(),
+        bottomNavigationBar: CustomNavBar(screen: routeName),
         body: Column(
           children: [
             Container(child: BlocBuilder<CategoryBloc, CategoryState>(
