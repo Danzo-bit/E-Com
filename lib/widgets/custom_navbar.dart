@@ -1,20 +1,24 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_app/models/models.dart';
+import 'package:my_app/models/models.dart';
 import 'package:my_app/models/product_model.dart';
 
 import '../blocs/cart/cart_bloc.dart';
+import '../blocs/checkout/checkout_bloc.dart';
 import '../blocs/wishlist/wishlist_bloc.dart';
 import '../screens/cart/cart_screen.dart';
 
-class CustomNavBar extends StatelessWidget{
+class CustomNavBar extends StatelessWidget {
   final String screen;
   final Product? product;
-  const CustomNavBar({Key? key, required this.screen, this.product}) : super(key: key);
+
+  const CustomNavBar({Key? key, required this.screen, this.product})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return  BottomAppBar(
+    return BottomAppBar(
       color: Colors.black,
       child: Container(
         height: 70,
@@ -26,8 +30,8 @@ class CustomNavBar extends StatelessWidget{
     );
   }
 
-  List<Widget>? _selectNavBar(context, screen){
-    switch(screen){
+  List<Widget>? _selectNavBar(context, screen) {
+    switch (screen) {
       case '/':
         return _buildNavBar(context);
       case '/catalog':
@@ -45,7 +49,7 @@ class CustomNavBar extends StatelessWidget{
     }
   }
 
-  List<Widget> _buildNavBar(context){
+  List<Widget> _buildNavBar(context) {
     return [
       IconButton(
         icon: Icon(Icons.home, color: Colors.white,),
@@ -85,19 +89,32 @@ class CustomNavBar extends StatelessWidget{
 
   List<Widget> _buildOrderNowNavBar(context) {
     return [
-      ElevatedButton(
-          style: ElevatedButton.styleFrom(primary: Colors.white),
-          onPressed: () {
-
-          },
-          child: Text(
-            'ORDER NOW',
-            style: Theme
-                .of(context)
-                .textTheme
-                .headline3!
-                .copyWith(color: Colors.black),
-          ))
+      BlocBuilder<CheckoutBloc, CheckoutState>(
+        builder: (context, state) {
+          if(state is CheckoutLoading){
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          if(state is CheckoutLoaded){
+            return ElevatedButton(
+                style: ElevatedButton.styleFrom(primary: Colors.white),
+                onPressed: () {
+                    context.read<CheckoutBloc>().add(
+                        ConfirmCheckout(checkout: state.checkout));
+                },
+                child: Text(
+                  'ORDER NOW',
+                  style: Theme
+                      .of(context)
+                      .textTheme
+                      .headline3!
+                      .copyWith(color: Colors.black),
+                ));
+          }else
+            return Text('Something went wrong!');
+        },
+      )
     ];
   }
 
