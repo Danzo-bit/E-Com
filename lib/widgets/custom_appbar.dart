@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 class CustomAppBar extends StatelessWidget with PreferredSizeWidget{
   final String title;
   final bool automaticallyImplyLeading;
- const CustomAppBar({Key? key, required this.title, this.automaticallyImplyLeading = true}) : super(key: key);
+  final bool isAuth;
+ const CustomAppBar({Key? key, required this.title, this.automaticallyImplyLeading = true, this.isAuth = false}) : super(key: key);
 
 
   @override
@@ -29,7 +30,9 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget{
           color: Colors.black
       ),
       actions: [
-        IconButton(
+        isAuth == true ?
+        Container()
+        :IconButton(
             onPressed: (){
               Navigator.pushNamed(context, '/wishlist');
             },

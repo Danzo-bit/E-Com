@@ -5,3 +5,5 @@ export 'wishlist/wishlist_screen.dart';
 export 'catalog/catalog_screen.dart';
 export 'splash/splash_screen.dart';
 export 'checkout/checkout_screen.dart';
+export 'signup/signup_screen.dart';
+export 'login/login_screen.dart';

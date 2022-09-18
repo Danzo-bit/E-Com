@@ -22,8 +22,11 @@ class HomeScreen extends StatelessWidget {
             Container(child: BlocBuilder<CategoryBloc, CategoryState>(
               builder: (context, state) {
                 if (state is CategoryLoading) {
-                  return Center(
-                    child: CircularProgressIndicator(),
+                  return SizedBox(
+                    height: 100,
+                    child: Center(
+                      child: CircularProgressIndicator(),
+                    ),
                   );
                 }
                 if (state is CategoryLoaded) {

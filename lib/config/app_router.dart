@@ -22,6 +22,10 @@ class AppRouter{
         return WishlistScreen.route();
       case CheckoutScreen.routeName:
         return CheckoutScreen.route();
+      case SignupScreen.routeName:
+        return SignupScreen.route();
+      case LoginScreen.routeName:
+        return LoginScreen.route();
       default:
         return _errorRoute();
     }

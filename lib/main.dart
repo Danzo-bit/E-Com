@@ -56,7 +56,9 @@ class MyApp extends StatelessWidget {
           title: "e-Shop",
           theme: theme(),
           onGenerateRoute: AppRouter.onGenerateRoute,
-          initialRoute: SplashScreen.routeName,
+          initialRoute:
+          // LoginScreen.routeName,
+          SplashScreen.routeName,
         ),
       ),
     );
