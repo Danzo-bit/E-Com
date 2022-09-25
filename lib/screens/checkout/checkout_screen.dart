@@ -14,7 +14,7 @@ class CheckoutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: 'Checkout'),
+      appBar: CustomAppBar(title: 'Checkout', isWishlistOn: false,),
       bottomNavigationBar: CustomNavBar(
         screen: routeName,
       ),

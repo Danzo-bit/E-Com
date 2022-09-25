@@ -8,6 +8,7 @@ import '../blocs/cart/cart_bloc.dart';
 import '../blocs/checkout/checkout_bloc.dart';
 import '../blocs/wishlist/wishlist_bloc.dart';
 import '../screens/cart/cart_screen.dart';
+import '../screens/confirm_order/confirm_order_screen.dart';
 
 class CustomNavBar extends StatelessWidget {
   final String screen;
@@ -102,6 +103,7 @@ class CustomNavBar extends StatelessWidget {
                 onPressed: () {
                     context.read<CheckoutBloc>().add(
                         ConfirmCheckout(checkout: state.checkout));
+                    Navigator.pushNamed(context, ConfirmOrder.routeName);
                 },
                 child: Text(
                   'ORDER NOW',

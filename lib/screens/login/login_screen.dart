@@ -11,7 +11,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomAppBar(title: 'Login',automaticallyImplyLeading: false,isAuth: true,),
+      appBar: const CustomAppBar(title: 'Login',automaticallyImplyLeading: false,isWishlistOn: false,),
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(

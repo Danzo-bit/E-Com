@@ -10,7 +10,7 @@ class SignupScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: CustomAppBar(title: 'Signup',automaticallyImplyLeading: false, isAuth: true,),
+        appBar: CustomAppBar(title: 'Signup',automaticallyImplyLeading: false, isWishlistOn: false,),
     body: Padding(
       padding: const EdgeInsets.all(15.0),
       child: Column(
