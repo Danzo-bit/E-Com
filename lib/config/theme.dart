@@ -6,6 +6,7 @@ ThemeData theme(){
     scaffoldBackgroundColor: Colors.grey,
     fontFamily: 'Roboto',
     textTheme: textTheme(),
+    focusColor: Colors.black,
   );
 }
 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_app/models/models.dart';
 import 'package:my_app/models/models.dart';
-import 'package:my_app/widgets/widgets.dart';
+import 'package:my_app/widgets/widgets.dart'; 
 
 import '../../blocs/checkout/checkout_bloc.dart';
 import '../../widgets/custom_appbar.dart';
@@ -14,8 +14,9 @@ class CheckoutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: 'Checkout', isWishlistOn: false,),
-      bottomNavigationBar: CustomNavBar(
+      resizeToAvoidBottomInset: false,
+      appBar: const CustomAppBar(title: 'Checkout', isWishlistOn: false,),
+      bottomNavigationBar: const CustomNavBar(
         screen: routeName,
       ),
       body: Padding(
@@ -23,7 +24,7 @@ class CheckoutScreen extends StatelessWidget {
         child: BlocBuilder<CheckoutBloc, CheckoutState>(
           builder: (context, state) {
             if(state is CheckoutLoading){
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),
               );
             }
@@ -75,12 +76,12 @@ class CheckoutScreen extends StatelessWidget {
                     'ORDER SUMMARY',
                     style: Theme.of(context).textTheme.headline3,
                   ),
-                  OrderSummary()
+                  const OrderSummary()
                 ],
               );
             }
             else
-              return Center(
+              return const Center(
                 child: Text('Something went wrong!'),
               );
 
@@ -90,7 +91,7 @@ class CheckoutScreen extends StatelessWidget {
     );
   }
 
-  Padding _buldTextFormField(Function(String)? onChanged,
+  Padding _buldTextFormField(Function(String) onChanged,
       BuildContext context, String labelText) {
     return Padding(
       padding: const EdgeInsets.all(5.0),
@@ -106,9 +107,9 @@ class CheckoutScreen extends StatelessWidget {
           Expanded(
               child: TextFormField(
             onChanged: onChanged,
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               isDense: true,
-              contentPadding: const EdgeInsets.only(left: 5),
+              contentPadding: EdgeInsets.only(left: 5),
               focusedBorder: UnderlineInputBorder(
                   borderSide: BorderSide(color: Colors.black)),
             ),
@@ -121,7 +122,7 @@ class CheckoutScreen extends StatelessWidget {
 
   static Route route() {
     return MaterialPageRoute(
-        settings: RouteSettings(name: routeName),
-        builder: (_) => CheckoutScreen());
+        settings: const RouteSettings(name: routeName),
+        builder: (_) => const CheckoutScreen());
   }
 }

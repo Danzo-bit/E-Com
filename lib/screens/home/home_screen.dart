@@ -12,17 +12,17 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: CustomAppBar(
+        appBar: const CustomAppBar(
           title: 'E-shop',
           automaticallyImplyLeading: false,
         ),
-        bottomNavigationBar: CustomNavBar(screen: routeName),
+        bottomNavigationBar: const CustomNavBar(screen: routeName),
         body: Column(
           children: [
             Container(child: BlocBuilder<CategoryBloc, CategoryState>(
               builder: (context, state) {
                 if (state is CategoryLoading) {
-                  return SizedBox(
+                  return const SizedBox(
                     height: 100,
                     child: Center(
                       child: CircularProgressIndicator(),
@@ -42,11 +42,11 @@ class HomeScreen extends StatelessWidget {
                         .toList(),
                   );
                 } else {
-                  return Text('something went wrong');
+                  return const Text('something went wrong');
                 }
               },
             )),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             const SectionTitle(title: 'RECOMMENDED'),
@@ -54,7 +54,7 @@ class HomeScreen extends StatelessWidget {
               child: BlocBuilder<ProductBloc, ProductState>(
                 builder: (context, state) {
                   if (state is ProductLoading) {
-                    return Center(
+                    return const Center(
                       child: CircularProgressIndicator(),
                     );
                   }
@@ -64,7 +64,7 @@ class HomeScreen extends StatelessWidget {
                             .where((product) => product.isRecommended)
                             .toList());
                   } else {
-                    return Text('Something went wrong!');
+                    return const Text('Something went wrong!');
                   }
                 },
               ),
@@ -74,7 +74,7 @@ class HomeScreen extends StatelessWidget {
               child: BlocBuilder<ProductBloc, ProductState>(
                 builder: (context, state) {
                   if (state is ProductLoading) {
-                    return Center(
+                    return const Center(
                       child: CircularProgressIndicator(),
                     );
                   }
@@ -84,7 +84,7 @@ class HomeScreen extends StatelessWidget {
                             .where((product) => product.isPopular)
                             .toList());
                   } else {
-                    return Text('Something went wrong!');
+                    return const Text('Something went wrong!');
                   }
                 },
               ),
@@ -95,7 +95,7 @@ class HomeScreen extends StatelessWidget {
 
   static Route route() {
     return MaterialPageRoute(
-      settings: RouteSettings(name: routeName),
+      settings: const RouteSettings(name: routeName),
       builder: (_) => HomeScreen(),
     );
   }

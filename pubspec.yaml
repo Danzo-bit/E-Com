@@ -44,6 +44,8 @@ dependencies:
   firebase_auth: ^3.9.0
 
 dev_dependencies:
+  integration_test:
+    sdk: flutter
   flutter_test:
     sdk: flutter
 

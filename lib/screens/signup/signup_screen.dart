@@ -10,7 +10,7 @@ class SignupScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: CustomAppBar(title: 'Signup',automaticallyImplyLeading: false, isWishlistOn: false,),
+        appBar: const CustomAppBar(title: 'Signup',automaticallyImplyLeading: false, isWishlistOn: false,),
     body: Padding(
       padding: const EdgeInsets.all(15.0),
       child: Column(
@@ -18,82 +18,82 @@ class SignupScreen extends StatelessWidget {
         children: [
           TextFormField(
             onChanged: (value){},
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: 'Email',
               isDense: true,
-              contentPadding: const EdgeInsets.only(left: 5),
+              contentPadding: EdgeInsets.only(left: 5),
               focusedBorder: UnderlineInputBorder(
                   borderSide: BorderSide(color: Colors.black)),
             ),
           ),
           TextFormField(
             onChanged: (value){},
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: 'Full Name',
               isDense: true,
-              contentPadding: const EdgeInsets.only(left: 5),
+              contentPadding: EdgeInsets.only(left: 5),
               focusedBorder: UnderlineInputBorder(
                   borderSide: BorderSide(color: Colors.black)),
             ),
           ),
           TextFormField(
             onChanged: (value){},
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: 'Country',
               isDense: true,
-              contentPadding: const EdgeInsets.only(left: 5),
+              contentPadding: EdgeInsets.only(left: 5),
               focusedBorder: UnderlineInputBorder(
                   borderSide: BorderSide(color: Colors.black)),
             ),
           ),
           TextFormField(
             onChanged: (value){},
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: 'City',
               isDense: true,
-              contentPadding: const EdgeInsets.only(left: 5),
+              contentPadding: EdgeInsets.only(left: 5),
               focusedBorder: UnderlineInputBorder(
                   borderSide: BorderSide(color: Colors.black)),
             ),
           ),
           TextFormField(
             onChanged: (value){},
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: 'Address',
               isDense: true,
-              contentPadding: const EdgeInsets.only(left: 5),
+              contentPadding: EdgeInsets.only(left: 5),
               focusedBorder: UnderlineInputBorder(
                   borderSide: BorderSide(color: Colors.black)),
             ),
           ),
           TextFormField(
             onChanged: (value){},
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: 'Zip Code',
               isDense: true,
-              contentPadding: const EdgeInsets.only(left: 5),
+              contentPadding: EdgeInsets.only(left: 5),
               focusedBorder: UnderlineInputBorder(
                   borderSide: BorderSide(color: Colors.black)),
             ),
           ),
           TextFormField(
             onChanged: (value){},
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               labelText: 'Password',
               isDense: true,
-              contentPadding: const EdgeInsets.only(left: 5),
+              contentPadding: EdgeInsets.only(left: 5),
               focusedBorder: UnderlineInputBorder(
                   borderSide: BorderSide(color: Colors.black)),
             ),
           ),
-          SizedBox(height: 10,),
+          const SizedBox(height: 10,),
           ElevatedButton(
               style: ElevatedButton.styleFrom(
                   primary: Colors.black,
-                  fixedSize: Size(200, 20)
+                  fixedSize: const Size(200, 20)
               ),
               onPressed: (){},
-              child: Text('Sign Up')),
+              child: const Text('Sign Up')),
         ],
       ),
     ),

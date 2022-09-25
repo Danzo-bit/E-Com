@@ -13,7 +13,7 @@ class OrderSummary extends StatelessWidget {
       if(state is CartLoaded) {
         return Column(
           children: [
-            Divider(
+            const Divider(
               thickness: 10,
             ),
             Padding(

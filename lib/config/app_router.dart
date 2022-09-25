@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:my_app/models/models.dart';
+import 'package:my_app/screens/confirm_order/confirm_order_screen.dart';
 import 'package:my_app/screens/screens.dart';
 
 class AppRouter{
@@ -26,6 +27,8 @@ class AppRouter{
         return SignupScreen.route();
       case LoginScreen.routeName:
         return LoginScreen.route();
+      case ConfirmOrder.routeName:
+        return ConfirmOrder.route();
       default:
         return _errorRoute();
     }

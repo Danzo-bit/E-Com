@@ -12,6 +12,7 @@ import 'package:my_app/repositories/category/category_repository.dart';
 import 'package:my_app/repositories/checkout/checkout_repository.dart';
 import 'package:my_app/repositories/product/product_repository.dart';
 import 'package:my_app/repositories/user/user_repository.dart';
+import 'package:my_app/screens/confirm_order/confirm_order_screen.dart';
 import 'blocs/product/product_bloc.dart';
 import 'blocs/wishlist/wishlist_bloc.dart';
 import 'screens/screens.dart';
@@ -57,8 +58,8 @@ class MyApp extends StatelessWidget {
           theme: theme(),
           onGenerateRoute: AppRouter.onGenerateRoute,
           initialRoute:
-          // LoginScreen.routeName,
-          SplashScreen.routeName,
+          ConfirmOrder.routeName,
+          // SplashScreen.routeName,
         ),
       ),
     );

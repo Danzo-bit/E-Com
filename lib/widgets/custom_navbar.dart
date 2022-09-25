@@ -37,6 +37,8 @@ class CustomNavBar extends StatelessWidget {
         return _buildNavBar(context);
       case '/catalog':
         return _buildNavBar(context);
+      case '/confirmOrder':
+        return _buildNavBar(context);
       case '/wishlist':
         return _buildNavBar(context);
       case '/product':
