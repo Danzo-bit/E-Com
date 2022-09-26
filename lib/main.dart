@@ -58,8 +58,8 @@ class MyApp extends StatelessWidget {
           theme: theme(),
           onGenerateRoute: AppRouter.onGenerateRoute,
           initialRoute:
-          ConfirmOrder.routeName,
-          // SplashScreen.routeName,
+          // ConfirmOrder.routeName,
+          SplashScreen.routeName,
         ),
       ),
     );
