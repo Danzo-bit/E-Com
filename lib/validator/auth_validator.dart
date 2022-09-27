@@ -24,4 +24,28 @@ class AuthValidator {
     }
     return null;
   }
+
+  static validateName(String name) {
+    if (name.isEmpty){
+      return 'Required field';
+    }
+  }
+
+  static validateContry(String country) {
+    if(country.isEmpty){
+      return 'Required field';
+    }
+  }
+
+  static validateCity(String city) {
+    if (city.isEmpty) {
+      return 'Required field';
+    }
+  }
+
+  static validateAddress(String address) {
+    if(address.isEmpty){
+      return;
+    }
+  }
 }
